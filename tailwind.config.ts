@@ -47,6 +47,18 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        isabella: {
+          DEFAULT: "hsl(var(--isabella))",
+          foreground: "hsl(var(--isabella-foreground))",
+        },
+        dream: {
+          DEFAULT: "hsl(var(--dream))",
+          foreground: "hsl(var(--dream-foreground))",
+        },
+        msr: {
+          DEFAULT: "hsl(var(--msr))",
+          foreground: "hsl(var(--msr-foreground))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -57,6 +69,10 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      fontFamily: {
+        display: ['Orbitron', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
