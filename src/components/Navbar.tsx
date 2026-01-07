@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const navLinks = [
-  { name: "Ecosistema", href: "#ecosystem" },
-  { name: "Isabella AI", href: "#isabella" },
-  { name: "Blockchain", href: "#blockchain" },
-  { name: "Gobernanza", href: "#governance" },
+  { name: "Ecosistema", href: "/#ecosystem" },
+  { name: "Isabella AI", href: "/isabella" },
+  { name: "DreamSpaces", href: "/dreamspaces" },
+  { name: "Gobernanza", href: "/#governance" },
 ];
 
 const Navbar = () => {
@@ -25,13 +26,23 @@ const Navbar = () => {
             {/* Desktop Links */}
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {link.name}
-                </a>
+                link.href.startsWith('/') && !link.href.startsWith('/#') ? (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                )
               ))}
               <button className="bg-gradient-primary text-primary-foreground font-display text-sm font-semibold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
                 Acceder
@@ -60,14 +71,25 @@ const Navbar = () => {
           >
             <div className="container mx-auto px-6 py-4 space-y-4">
               {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="block text-muted-foreground hover:text-foreground transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </a>
+                link.href.startsWith('/') && !link.href.startsWith('/#') ? (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    className="block text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="block text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                )
               ))}
               <button className="w-full bg-gradient-primary text-primary-foreground font-display text-sm font-semibold px-4 py-2 rounded-lg">
                 Acceder
