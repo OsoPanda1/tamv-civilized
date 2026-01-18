@@ -2,6 +2,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
+import UserMenu from "@/components/auth/UserMenu";
 
 const navLinks = [
   { name: "Ecosistema", href: "/#ecosystem" },
@@ -13,6 +15,7 @@ const navLinks = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user, loading } = useAuth();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
@@ -45,9 +48,20 @@ const Navbar = () => {
                   </a>
                 )
               ))}
-              <button className="bg-gradient-primary text-primary-foreground font-display text-sm font-semibold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
-                Acceder
-              </button>
+              
+              {/* Auth Button / User Menu */}
+              {!loading && (
+                user ? (
+                  <UserMenu />
+                ) : (
+                  <Link
+                    to="/auth"
+                    className="bg-gradient-primary text-primary-foreground font-display text-sm font-semibold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+                  >
+                    Acceder
+                  </Link>
+                )
+              )}
             </div>
 
             {/* Mobile Menu Button */}
@@ -92,9 +106,23 @@ const Navbar = () => {
                   </a>
                 )
               ))}
-              <button className="w-full bg-gradient-primary text-primary-foreground font-display text-sm font-semibold px-4 py-2 rounded-lg">
-                Acceder
-              </button>
+              
+              {/* Mobile Auth */}
+              {!loading && (
+                user ? (
+                  <div className="pt-2 border-t border-border">
+                    <UserMenu />
+                  </div>
+                ) : (
+                  <Link
+                    to="/auth"
+                    className="block w-full bg-gradient-primary text-primary-foreground font-display text-sm font-semibold px-4 py-2 rounded-lg text-center"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Acceder
+                  </Link>
+                )
+              )}
             </div>
           </motion.div>
         )}
