@@ -7,6 +7,7 @@ const navLinks = [
   { name: "Ecosistema", href: "/#ecosystem" },
   { name: "Isabella AI", href: "/isabella" },
   { name: "DreamSpaces", href: "/dreamspaces" },
+  { name: "Civilization Hub", href: "/hub" },
   { name: "Gobernanza", href: "/#governance" },
 ];
 
