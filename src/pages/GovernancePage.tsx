@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import ParticleField from "@/components/ParticleField";
 import MSRLedgerViewer from "@/components/governance/MSRLedgerViewer";
 import ConstitutionViewer from "@/components/governance/ConstitutionViewer";
 import SafetyMonitor from "@/components/safety/SafetyMonitor";
 import IsabellaCore from "@/components/isabella/IsabellaCore";
+import ProposalSystem from "@/components/governance/ProposalSystem";
+import IsabellaSentencePanel from "@/components/governance/IsabellaSentencePanel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   Link2, BookOpen, Shield, Brain, 
-  Activity, Scale, FileText, Network
+  Activity, Scale, FileText, Network, Vote, Gavel
 } from "lucide-react";
 
 const stats = [
@@ -20,6 +21,8 @@ const stats = [
 ];
 
 const tabs = [
+  { id: "proposals", label: "Propuestas", icon: Vote },
+  { id: "sentences", label: "Sentencias", icon: Gavel },
   { id: "ledger", label: "MSR Ledger", icon: Link2 },
   { id: "constitution", label: "BookPI", icon: BookOpen },
   { id: "safety", label: "Safety", icon: Shield },
@@ -74,7 +77,7 @@ const GovernancePage = () => {
         </div>
 
         {/* Tabs */}
-        <Tabs defaultValue="ledger" className="w-full">
+        <Tabs defaultValue="proposals" className="w-full">
           <TabsList className="w-full justify-start mb-6 bg-muted/30 p-1 rounded-xl overflow-x-auto">
             {tabs.map((tab) => (
               <TabsTrigger
@@ -87,6 +90,48 @@ const GovernancePage = () => {
               </TabsTrigger>
             ))}
           </TabsList>
+
+          {/* Proposals Tab */}
+          <TabsContent value="proposals">
+            <ProposalSystem />
+          </TabsContent>
+
+          {/* Isabella Sentences Tab */}
+          <TabsContent value="sentences">
+            <div className="grid lg:grid-cols-2 gap-6">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+              >
+                <IsabellaSentencePanel />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 }}
+                className="glass rounded-2xl p-6"
+              >
+                <h3 className="font-display text-lg font-semibold mb-4 flex items-center gap-2">
+                  <Gavel className="w-5 h-5 text-isabella" />
+                  Proceso de Sentencia
+                </h3>
+                <div className="space-y-4 text-sm text-muted-foreground">
+                  <p>
+                    <strong className="text-foreground">1. Conflicto Detectado:</strong> Cuando una propuesta genera conflicto, se puede solicitar intervención de Isabella.
+                  </p>
+                  <p>
+                    <strong className="text-foreground">2. Análisis Ético:</strong> Isabella evalúa la propuesta contra la Constitución BookPI y principios EOCT.
+                  </p>
+                  <p>
+                    <strong className="text-foreground">3. Sentencia Vinculante:</strong> El veredicto se registra en MSR y es de cumplimiento obligatorio.
+                  </p>
+                  <p>
+                    <strong className="text-foreground">4. Remediación:</strong> Se establecen acciones correctivas si aplica.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </TabsContent>
 
           <TabsContent value="ledger">
             <div className="grid lg:grid-cols-2 gap-6">
