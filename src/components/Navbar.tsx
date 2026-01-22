@@ -4,6 +4,8 @@ import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import UserMenu from "@/components/auth/UserMenu";
+import NotificationBell from "@/components/notifications/NotificationBell";
+import NotificationCenter from "@/components/notifications/NotificationCenter";
 
 const navLinks = [
   { name: "Ecosistema", href: "/#ecosystem" },
@@ -15,6 +17,7 @@ const navLinks = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [notificationsOpen, setNotificationsOpen] = useState(false);
   const { user, loading } = useAuth();
 
   return (
@@ -49,6 +52,11 @@ const Navbar = () => {
                 )
               ))}
               
+              {/* Notifications */}
+              {user && (
+                <NotificationBell onClick={() => setNotificationsOpen(!notificationsOpen)} />
+              )}
+              
               {/* Auth Button / User Menu */}
               {!loading && (
                 user ? (
@@ -62,6 +70,12 @@ const Navbar = () => {
                   </Link>
                 )
               )}
+              
+              {/* Notification Center */}
+              <NotificationCenter 
+                isOpen={notificationsOpen} 
+                onClose={() => setNotificationsOpen(false)} 
+              />
             </div>
 
             {/* Mobile Menu Button */}
