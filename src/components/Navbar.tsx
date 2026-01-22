@@ -10,7 +10,7 @@ const navLinks = [
   { name: "Isabella AI", href: "/isabella" },
   { name: "DreamSpaces", href: "/dreamspaces" },
   { name: "Civilization Hub", href: "/hub" },
-  { name: "Gobernanza", href: "/#governance" },
+  { name: "Gobernanza", href: "/governance" },
 ];
 
 const Navbar = () => {
