@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import IsabellaDashboard from "./pages/IsabellaDashboard";
 import DreamSpaces from "./pages/DreamSpaces";
 import CivilizationHub from "./pages/CivilizationHub";
+import GovernancePage from "./pages/GovernancePage";
 import Auth from "./pages/Auth";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
             <Route path="/isabella" element={<IsabellaDashboard />} />
             <Route path="/dreamspaces" element={<DreamSpaces />} />
             <Route path="/hub" element={<CivilizationHub />} />
+            <Route path="/governance" element={<GovernancePage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
