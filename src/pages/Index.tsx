@@ -1,10 +1,10 @@
 import Navbar from "@/components/Navbar";
 import ParticleField from "@/components/ParticleField";
-import Hero from "@/components/Hero";
-import FeaturesGrid from "@/components/FeaturesGrid";
-import IsabellaSection from "@/components/IsabellaSection";
-import BlockchainSection from "@/components/BlockchainSection";
-import GovernanceSection from "@/components/GovernanceSection";
+import QuantumHero from "@/components/QuantumHero";
+import FederatedLayers from "@/components/FederatedLayers";
+import IsabellaShowcase from "@/components/IsabellaShowcase";
+import BlockchainMSR from "@/components/BlockchainMSR";
+import GovernancePreview from "@/components/GovernancePreview";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -13,11 +13,11 @@ const Index = () => {
       <ParticleField />
       <Navbar />
       <main className="relative z-10">
-        <Hero />
-        <FeaturesGrid />
-        <IsabellaSection />
-        <BlockchainSection />
-        <GovernanceSection />
+        <QuantumHero />
+        <FederatedLayers />
+        <IsabellaShowcase />
+        <BlockchainMSR />
+        <GovernancePreview />
       </main>
       <Footer />
     </div>

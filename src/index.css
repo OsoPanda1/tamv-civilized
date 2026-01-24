@@ -2,88 +2,120 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-/* TAMV Online Design System - Quantum Civilization Aesthetic */
+/* TAMV MD-X4™ QUANTUM CIVILIZATION DESIGN SYSTEM 2026 */
+/* Infraestructura Digital Soberana, Auditable y Multisensorial */
 
 @layer base {
   :root {
-    /* Core Deep Space Palette */
-    --background: 222 47% 5%;
+    /* === COSMIC DEEP SPACE PALETTE === */
+    --background: 225 50% 3%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 8%;
+    --card: 225 45% 6%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 8%;
+    --popover: 225 45% 6%;
     --popover-foreground: 210 40% 98%;
 
-    /* Primary: Electric Cyan - Quantum Energy */
+    /* === PRIMARY: ELECTRIC QUANTUM CYAN === */
     --primary: 188 100% 50%;
-    --primary-foreground: 222 47% 5%;
+    --primary-foreground: 225 50% 3%;
 
-    /* Secondary: Deep Space Blue */
-    --secondary: 222 47% 15%;
+    /* === SECONDARY: DEEP SPACE === */
+    --secondary: 225 45% 12%;
     --secondary-foreground: 210 40% 98%;
 
-    /* Muted: Cosmic Dust */
-    --muted: 222 30% 18%;
-    --muted-foreground: 215 20% 65%;
+    /* === MUTED: COSMIC DUST === */
+    --muted: 225 30% 15%;
+    --muted-foreground: 215 20% 60%;
 
-    /* Accent: Anubis Gold */
-    --accent: 45 100% 55%;
-    --accent-foreground: 222 47% 5%;
+    /* === ACCENT: ANUBIS GOLD === */
+    --accent: 42 100% 50%;
+    --accent-foreground: 225 50% 3%;
 
-    /* Isabella Purple - AI Consciousness */
-    --isabella: 270 80% 60%;
+    /* === ISABELLA: AI CONSCIOUSNESS VIOLET === */
+    --isabella: 270 85% 60%;
     --isabella-foreground: 210 40% 98%;
 
-    /* Dreamscape Teal */
+    /* === DREAM: TEAL DREAMSCAPE === */
     --dream: 175 70% 45%;
-    --dream-foreground: 222 47% 5%;
+    --dream-foreground: 225 50% 3%;
 
-    /* MSR Blockchain Orange */
+    /* === MSR: BLOCKCHAIN ORANGE === */
     --msr: 25 95% 55%;
-    --msr-foreground: 222 47% 5%;
+    --msr-foreground: 225 50% 3%;
 
+    /* === QUANTUM: SPECIAL EFFECTS === */
+    --quantum: 280 100% 65%;
+    --quantum-foreground: 210 40% 98%;
+
+    /* === ANUBIS: GUARDIAN THEME === */
+    --anubis: 45 90% 45%;
+    --anubis-foreground: 225 50% 3%;
+
+    /* === ELECTRIC: ENERGY HIGHLIGHT === */
+    --electric: 195 100% 55%;
+    --electric-foreground: 225 50% 3%;
+
+    /* === DESTRUCTIVE === */
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 222 30% 20%;
-    --input: 222 30% 20%;
+    /* === SUCCESS === */
+    --success: 145 70% 45%;
+    --success-foreground: 225 50% 3%;
+
+    /* === WARNING === */
+    --warning: 38 95% 55%;
+    --warning-foreground: 225 50% 3%;
+
+    --border: 225 25% 18%;
+    --input: 225 25% 18%;
     --ring: 188 100% 50%;
 
     --radius: 0.75rem;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(188 100% 50%), hsl(220 100% 60%));
-    --gradient-gold: linear-gradient(135deg, hsl(45 100% 55%), hsl(35 100% 45%));
-    --gradient-isabella: linear-gradient(135deg, hsl(270 80% 60%), hsl(300 70% 50%));
-    --gradient-dream: linear-gradient(135deg, hsl(175 70% 45%), hsl(200 80% 55%));
-    --gradient-msr: linear-gradient(135deg, hsl(25 95% 55%), hsl(15 90% 50%));
-    --gradient-dark: linear-gradient(180deg, hsl(222 47% 5%) 0%, hsl(222 47% 10%) 100%);
-    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+    /* === ADVANCED GRADIENTS === */
+    --gradient-primary: linear-gradient(135deg, hsl(188 100% 50%), hsl(210 100% 60%));
+    --gradient-gold: linear-gradient(135deg, hsl(42 100% 50%), hsl(25 100% 45%));
+    --gradient-isabella: linear-gradient(135deg, hsl(270 85% 60%), hsl(300 80% 55%));
+    --gradient-dream: linear-gradient(135deg, hsl(175 70% 45%), hsl(195 80% 50%));
+    --gradient-msr: linear-gradient(135deg, hsl(25 95% 55%), hsl(15 90% 45%));
+    --gradient-quantum: linear-gradient(135deg, hsl(280 100% 65%), hsl(188 100% 50%));
+    --gradient-anubis: linear-gradient(135deg, hsl(45 90% 45%), hsl(30 85% 40%));
+    --gradient-dark: linear-gradient(180deg, hsl(225 50% 3%) 0%, hsl(225 45% 8%) 100%);
+    --gradient-cosmic: radial-gradient(ellipse at center, hsl(225 45% 8%) 0%, hsl(225 50% 3%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(225 50% 3%) 0%, hsl(270 40% 8%) 50%, hsl(225 50% 3%) 100%);
 
-    /* Shadows */
-    --shadow-glow-cyan: 0 0 40px hsla(188, 100%, 50%, 0.3);
-    --shadow-glow-gold: 0 0 40px hsla(45, 100%, 55%, 0.3);
-    --shadow-glow-purple: 0 0 40px hsla(270, 80%, 60%, 0.3);
-    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+    /* === GLASSMORPHISM === */
+    --glass-bg: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+    --glass-border: rgba(255,255,255,0.12);
+    --glass-blur: 24px;
 
-    /* Sidebar - inherited from space theme */
-    --sidebar-background: 222 47% 8%;
+    /* === QUANTUM GLOW SHADOWS === */
+    --shadow-glow-cyan: 0 0 50px hsla(188, 100%, 50%, 0.35);
+    --shadow-glow-gold: 0 0 50px hsla(42, 100%, 50%, 0.35);
+    --shadow-glow-purple: 0 0 50px hsla(270, 85%, 60%, 0.35);
+    --shadow-glow-quantum: 0 0 80px hsla(280, 100%, 65%, 0.25);
+    --shadow-glow-dream: 0 0 50px hsla(175, 70%, 45%, 0.3);
+    --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.5);
+    --shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.6);
+
+    /* === SIDEBAR === */
+    --sidebar-background: 225 45% 6%;
     --sidebar-foreground: 210 40% 98%;
     --sidebar-primary: 188 100% 50%;
-    --sidebar-primary-foreground: 222 47% 5%;
-    --sidebar-accent: 222 30% 18%;
+    --sidebar-primary-foreground: 225 50% 3%;
+    --sidebar-accent: 225 30% 15%;
     --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 222 30% 20%;
+    --sidebar-border: 225 25% 18%;
     --sidebar-ring: 188 100% 50%;
   }
 
   .dark {
-    /* Dark mode is default - same values */
-    --background: 222 47% 5%;
+    --background: 225 50% 3%;
     --foreground: 210 40% 98%;
   }
 }
@@ -93,27 +125,85 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', sans-serif;
+    background: var(--gradient-cosmic);
+    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* === CUSTOM SCROLLBAR === */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+
+  /* === SELECTION === */
+  ::selection {
+    background: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
   }
 }
 
 @layer utilities {
+  /* === TYPOGRAPHY === */
   .font-display {
     font-family: 'Orbitron', sans-serif;
   }
 
-  .glass {
-    background: var(--gradient-glass);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
   }
 
+  /* === GLASSMORPHISM VARIANTS === */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+  }
+
+  .glass-heavy {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.04) 100%);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .glass-dark {
+    background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* === GLOW EFFECTS === */
   .glow-cyan {
     box-shadow: var(--shadow-glow-cyan);
   }
@@ -126,6 +216,15 @@
     box-shadow: var(--shadow-glow-purple);
   }
 
+  .glow-quantum {
+    box-shadow: var(--shadow-glow-quantum);
+  }
+
+  .glow-dream {
+    box-shadow: var(--shadow-glow-dream);
+  }
+
+  /* === TEXT GRADIENTS === */
   .text-gradient-primary {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
@@ -147,6 +246,21 @@
     background-clip: text;
   }
 
+  .text-gradient-quantum {
+    background: var(--gradient-quantum);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-anubis {
+    background: var(--gradient-anubis);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* === BACKGROUND GRADIENTS === */
   .bg-gradient-primary {
     background: var(--gradient-primary);
   }
@@ -166,4 +280,154 @@
   .bg-gradient-msr {
     background: var(--gradient-msr);
   }
+
+  .bg-gradient-quantum {
+    background: var(--gradient-quantum);
+  }
+
+  .bg-gradient-anubis {
+    background: var(--gradient-anubis);
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-cosmic {
+    background: var(--gradient-cosmic);
+  }
+
+  /* === QUANTUM ANIMATIONS === */
+  @keyframes quantum-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+  }
+
+  @keyframes quantum-float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(1deg); }
+  }
+
+  @keyframes quantum-glow {
+    0%, 100% { box-shadow: 0 0 20px hsla(188, 100%, 50%, 0.3); }
+    50% { box-shadow: 0 0 40px hsla(188, 100%, 50%, 0.6); }
+  }
+
+  @keyframes scan-line {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+
+  @keyframes data-stream {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+  }
+
+  @keyframes border-flow {
+    0%, 100% { border-color: hsl(var(--primary) / 0.3); }
+    50% { border-color: hsl(var(--primary) / 0.8); }
+  }
+
+  .animate-quantum-pulse {
+    animation: quantum-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-quantum-float {
+    animation: quantum-float 6s ease-in-out infinite;
+  }
+
+  .animate-quantum-glow {
+    animation: quantum-glow 2s ease-in-out infinite;
+  }
+
+  .animate-scan-line {
+    animation: scan-line 8s linear infinite;
+  }
+
+  .animate-border-flow {
+    animation: border-flow 2s ease-in-out infinite;
+  }
+
+  /* === SPECIAL EFFECTS === */
+  .scanline-overlay {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scanline-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, hsl(var(--primary) / 0.5), transparent);
+    animation: scan-line 4s linear infinite;
+    pointer-events: none;
+  }
+
+  .noise-texture {
+    position: relative;
+  }
+
+  .noise-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  /* === QUANTUM BORDERS === */
+  .border-quantum {
+    border: 1px solid transparent;
+    background: linear-gradient(var(--background), var(--background)) padding-box,
+                var(--gradient-quantum) border-box;
+  }
+
+  .border-glow {
+    position: relative;
+  }
+
+  .border-glow::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: var(--gradient-primary);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .border-glow:hover::before {
+    opacity: 1;
+  }
+
+  /* === CIVILIZATION PATTERNS === */
+  .pattern-grid {
+    background-image: 
+      linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .pattern-dots {
+    background-image: radial-gradient(hsl(var(--primary) / 0.15) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .pattern-hex {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%2300c8ff' fill-opacity='0.05'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
 }
+
+/* === LAYER SPECIFIC COLORS === */
+.layer-shell { --layer-color: var(--primary); }
+.layer-core { --layer-color: var(--accent); }
+.layer-social { --layer-color: var(--dream); }
+.layer-economy { --layer-color: var(--msr); }
+.layer-xr { --layer-color: var(--quantum); }
+.layer-governance { --layer-color: var(--isabella); }
+.layer-meta { --layer-color: var(--anubis); }
