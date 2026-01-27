@@ -7,9 +7,12 @@ import { AuthProvider } from "@/hooks/useAuth";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import IsabellaDashboard from "./pages/IsabellaDashboard";
+import IsabellaDashboardPage from "./pages/IsabellaDashboardPage";
 import DreamSpaces from "./pages/DreamSpaces";
+import DreamSpacesPage from "./pages/DreamSpacesPage";
 import CivilizationHub from "./pages/CivilizationHub";
 import GovernancePage from "./pages/GovernancePage";
+import WalletPage from "./pages/WalletPage";
 import Auth from "./pages/Auth";
 
 const queryClient = new QueryClient();
@@ -24,10 +27,13 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
-            <Route path="/isabella" element={<IsabellaDashboard />} />
-            <Route path="/dreamspaces" element={<DreamSpaces />} />
+            <Route path="/isabella" element={<IsabellaDashboardPage />} />
+            <Route path="/isabella-legacy" element={<IsabellaDashboard />} />
+            <Route path="/dreamspaces" element={<DreamSpacesPage />} />
+            <Route path="/dreamspaces-legacy" element={<DreamSpaces />} />
             <Route path="/hub" element={<CivilizationHub />} />
             <Route path="/governance" element={<GovernancePage />} />
+            <Route path="/wallet" element={<WalletPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
