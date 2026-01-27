@@ -1,1 +1,7 @@
 project_id = "icxlyynsvpfbmlrrqjyp"
+
+[functions.isabella-chat]
+verify_jwt = false
+
+[functions.nubi-transaction]
+verify_jwt = false
