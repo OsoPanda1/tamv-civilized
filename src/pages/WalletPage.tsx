@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import ParticleField from "@/components/ParticleField";
 import { useAuth } from "@/hooks/useAuth";
-import { useWalletStore } from "@/stores/walletStore";
+import { useWalletStore, SPLIT_CONFIGS } from "@/stores/walletStore";
+import TenochtitlanMonitor from "@/components/security/TenochtitlanMonitor";
 import { useEffect, useState } from "react";
 import { 
   Wallet, 
@@ -22,6 +23,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
 import { AnimatePresence } from "framer-motion";
 import { SplitType } from "@/stores/walletStore";
@@ -60,6 +62,7 @@ const WalletPage = () => {
   const [amount, setAmount] = useState("");
   const [selectedSplit, setSelectedSplit] = useState<SplitType>('quantum_70_25');
   const [showSplitMenu, setShowSplitMenu] = useState(false);
+  const [activeTab, setActiveTab] = useState("wallet");
 
   useEffect(() => {
     if (user?.id) {
