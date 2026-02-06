@@ -14,39 +14,116 @@ export type Database = {
   }
   public: {
     Tables: {
+      dreamspace_instances: {
+        Row: {
+          cell: string | null
+          created_at: string | null
+          dreamspace_id: string
+          emotion_end: string | null
+          emotion_start: string | null
+          ended_at: string | null
+          experience_points: number | null
+          id: string
+          metadata: Json | null
+          msr_session_id: string | null
+          node: string | null
+          started_at: string | null
+          user_id: string
+        }
+        Insert: {
+          cell?: string | null
+          created_at?: string | null
+          dreamspace_id: string
+          emotion_end?: string | null
+          emotion_start?: string | null
+          ended_at?: string | null
+          experience_points?: number | null
+          id?: string
+          metadata?: Json | null
+          msr_session_id?: string | null
+          node?: string | null
+          started_at?: string | null
+          user_id: string
+        }
+        Update: {
+          cell?: string | null
+          created_at?: string | null
+          dreamspace_id?: string
+          emotion_end?: string | null
+          emotion_start?: string | null
+          ended_at?: string | null
+          experience_points?: number | null
+          id?: string
+          metadata?: Json | null
+          msr_session_id?: string | null
+          node?: string | null
+          started_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "dreamspace_instances_dreamspace_id_fkey"
+            columns: ["dreamspace_id"]
+            isOneToOne: false
+            referencedRelation: "dreamspaces"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       dreamspaces: {
         Row: {
+          cover_image_url: string | null
           created_at: string
           description: string | null
+          economic_loop: Json | null
+          ethical_limits: Json | null
           id: string
           is_public: boolean | null
+          min_level: string | null
           owner_id: string
+          phase: string | null
+          role_civilizatorio: string | null
           scene_config: Json | null
           scene_type: string
+          slug: string | null
           title: string
           updated_at: string
           visitors: number | null
         }
         Insert: {
+          cover_image_url?: string | null
           created_at?: string
           description?: string | null
+          economic_loop?: Json | null
+          ethical_limits?: Json | null
           id?: string
           is_public?: boolean | null
+          min_level?: string | null
           owner_id: string
+          phase?: string | null
+          role_civilizatorio?: string | null
           scene_config?: Json | null
           scene_type?: string
+          slug?: string | null
           title: string
           updated_at?: string
           visitors?: number | null
         }
         Update: {
+          cover_image_url?: string | null
           created_at?: string
           description?: string | null
+          economic_loop?: Json | null
+          ethical_limits?: Json | null
           id?: string
           is_public?: boolean | null
+          min_level?: string | null
           owner_id?: string
+          phase?: string | null
+          role_civilizatorio?: string | null
           scene_config?: Json | null
           scene_type?: string
+          slug?: string | null
           title?: string
           updated_at?: string
           visitors?: number | null
@@ -83,6 +160,53 @@ export type Database = {
         }
         Relationships: []
       }
+      isabella_exports: {
+        Row: {
+          bucket_path: string
+          conversation_id: string | null
+          created_at: string | null
+          emotional_summary: Json | null
+          encrypted: boolean | null
+          expires_at: string | null
+          export_type: string
+          id: string
+          title: string | null
+          user_id: string
+        }
+        Insert: {
+          bucket_path: string
+          conversation_id?: string | null
+          created_at?: string | null
+          emotional_summary?: Json | null
+          encrypted?: boolean | null
+          expires_at?: string | null
+          export_type?: string
+          id?: string
+          title?: string | null
+          user_id: string
+        }
+        Update: {
+          bucket_path?: string
+          conversation_id?: string | null
+          created_at?: string | null
+          emotional_summary?: Json | null
+          encrypted?: boolean | null
+          expires_at?: string | null
+          export_type?: string
+          id?: string
+          title?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "isabella_exports_conversation_id_fkey"
+            columns: ["conversation_id"]
+            isOneToOne: false
+            referencedRelation: "isabella_conversations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       isabella_messages: {
         Row: {
           content: string
@@ -117,6 +241,77 @@ export type Database = {
             columns: ["conversation_id"]
             isOneToOne: false
             referencedRelation: "isabella_conversations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      kaos_tracks: {
+        Row: {
+          artist_id: string
+          bpm: number | null
+          bucket_path: string
+          cover_url: string | null
+          created_at: string | null
+          description: string | null
+          duration_seconds: number | null
+          emotional_tags: string[] | null
+          genre: string | null
+          id: string
+          is_public: boolean | null
+          key_signature: string | null
+          likes_count: number | null
+          msr_event_id: string | null
+          plays_count: number | null
+          title: string
+          updated_at: string | null
+          waveform_data: Json | null
+        }
+        Insert: {
+          artist_id: string
+          bpm?: number | null
+          bucket_path: string
+          cover_url?: string | null
+          created_at?: string | null
+          description?: string | null
+          duration_seconds?: number | null
+          emotional_tags?: string[] | null
+          genre?: string | null
+          id?: string
+          is_public?: boolean | null
+          key_signature?: string | null
+          likes_count?: number | null
+          msr_event_id?: string | null
+          plays_count?: number | null
+          title: string
+          updated_at?: string | null
+          waveform_data?: Json | null
+        }
+        Update: {
+          artist_id?: string
+          bpm?: number | null
+          bucket_path?: string
+          cover_url?: string | null
+          created_at?: string | null
+          description?: string | null
+          duration_seconds?: number | null
+          emotional_tags?: string[] | null
+          genre?: string | null
+          id?: string
+          is_public?: boolean | null
+          key_signature?: string | null
+          likes_count?: number | null
+          msr_event_id?: string | null
+          plays_count?: number | null
+          title?: string
+          updated_at?: string | null
+          waveform_data?: Json | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "kaos_tracks_msr_event_id_fkey"
+            columns: ["msr_event_id"]
+            isOneToOne: false
+            referencedRelation: "msr_events"
             referencedColumns: ["id"]
           },
         ]
@@ -291,14 +486,58 @@ export type Database = {
         }
         Relationships: []
       }
+      user_roles: {
+        Row: {
+          granted_at: string | null
+          granted_by: string | null
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          granted_at?: string | null
+          granted_by?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          granted_at?: string | null
+          granted_by?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
+      is_admin: { Args: never; Returns: boolean }
+      is_dao_admin: { Args: never; Returns: boolean }
+      is_isabella_admin: { Args: never; Returns: boolean }
+      is_kaos_admin: { Args: never; Returns: boolean }
+      storage_owner_id: { Args: { name: string }; Returns: string }
     }
     Enums: {
+      app_role:
+        | "user"
+        | "citizen"
+        | "builder"
+        | "governor"
+        | "admin"
+        | "dao_admin"
+        | "kaos_admin"
+        | "isabella_admin"
       membership_tier: "citizen" | "architect" | "guardian" | "celestial"
       transaction_split_type:
         | "quantum_70_25"
@@ -439,6 +678,16 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
+      app_role: [
+        "user",
+        "citizen",
+        "builder",
+        "governor",
+        "admin",
+        "dao_admin",
+        "kaos_admin",
+        "isabella_admin",
+      ],
       membership_tier: ["citizen", "architect", "guardian", "celestial"],
       transaction_split_type: [
         "quantum_70_25",

@@ -5,3 +5,12 @@ verify_jwt = false
 
 [functions.nubi-transaction]
 verify_jwt = false
+
+[functions.dreamspaces-api]
+verify_jwt = false
+
+[functions.kaos-audio]
+verify_jwt = false
+
+[functions.isabella-exports]
+verify_jwt = false
