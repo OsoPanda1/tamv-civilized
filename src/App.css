@@ -1,42 +1,230 @@
+/* Layout raíz Vite + TAMV */
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Hero visual TAMV (background matrix 3D) */
+
+.tamv-hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 0%, #3af7ff22 0, transparent 55%),
+    radial-gradient(circle at 90% 100%, #ff3ad022 0, transparent 55%),
+    radial-gradient(circle at 50% 50%, #c0c7d333 0, #05060b 60%);
+  color: #e5f7ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1600px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.tamv-hero__matrix {
+  position: absolute;
+  inset: -20vh -20vw;
+  transform-style: preserve-3d;
+  animation: tamv-tilt 20s ease-in-out infinite alternate;
+}
+
+.tamv-line {
+  position: absolute;
+  bottom: -20vh;
+  width: 2px;
+  height: 60vh;
+  background: linear-gradient(
+    180deg,
+    rgba(192, 199, 211, 0),
+    rgba(192, 199, 211, 0.9),
+    rgba(0, 210, 255, 0.95)
+  );
+  box-shadow:
+    0 0 18px rgba(0, 212, 255, 0.7),
+    0 0 38px rgba(0, 119, 255, 0.5);
+  transform-origin: center bottom;
+  opacity: 0.8;
+  animation: tamv-line-rise 5s linear infinite;
+}
+
+.tamv-line--sm {
+  height: 32vh;
+  opacity: 0.55;
+}
+
+.tamv-line--md {
+  height: 48vh;
+  opacity: 0.7;
+}
+
+.tamv-line--lg {
+  height: 72vh;
+  opacity: 0.9;
+}
+
+.tamv-line--silver {
+  background: linear-gradient(
+    180deg,
+    rgba(220, 230, 245, 0),
+    rgba(220, 230, 245, 0.95),
+    rgba(140, 180, 255, 1)
+  );
+  box-shadow:
+    0 0 12px rgba(220, 230, 245, 0.9),
+    0 0 32px rgba(142, 197, 252, 0.7);
+}
+
+.tamv-line--neon-pink {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 0, 120, 0),
+    rgba(255, 60, 180, 0.9),
+    rgba(255, 120, 220, 1)
+  );
+  box-shadow:
+    0 0 14px rgba(255, 60, 180, 0.9),
+    0 0 40px rgba(255, 120, 220, 0.9),
+    0 0 70px rgba(255, 0, 150, 0.8);
+}
+
+.tamv-line--neon-lime {
+  background: linear-gradient(
+    180deg,
+    rgba(140, 255, 0, 0),
+    rgba(178, 255, 71, 0.9),
+    rgba(206, 255, 120, 1)
+  );
+  box-shadow:
+    0 0 14px rgba(178, 255, 71, 0.9),
+    0 0 40px rgba(178, 255, 71, 0.9),
+    0 0 70px rgba(140, 255, 0, 0.7);
+}
+
+.tamv-hero__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(
+      rgba(160, 180, 210, 0.25) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(160, 180, 210, 0.25) 1px,
+      transparent 1px
+    );
+  background-size: 80px 80px;
+  opacity: 0.35;
+  transform: translateZ(-200px) scale(1.3);
+  filter: drop-shadow(0 0 25px rgba(0, 204, 255, 0.6));
+}
+
+.tamv-hero__core {
+  position: relative;
+  z-index: 10;
+  width: min(480px, 90vw);
+  aspect-ratio: 4 / 3;
+  border-radius: 32px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(0, 255, 200, 0.4), transparent 60%),
+    radial-gradient(circle at 0% 100%, rgba(255, 0, 144, 0.35), transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(170, 255, 90, 0.35), transparent 65%),
+    linear-gradient(135deg, #050711, #050711);
+  border: 1px solid rgba(180, 220, 255, 0.55);
+  box-shadow:
+    0 0 35px rgba(0, 204, 255, 0.8),
+    0 0 90px rgba(255, 0, 128, 0.6),
+    0 0 120px rgba(154, 255, 101, 0.4);
+  overflow: hidden;
+  transform: translateZ(120px) rotateX(14deg);
+}
+
+.tamv-hero__core-lines {
+  position: absolute;
+  inset: -40%;
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    );
+  background-size: 40px 40px;
+  opacity: 0.7;
+  mix-blend-mode: screen;
+  animation: tamv-core-sweep 18s linear infinite;
+}
+
+.tamv-hero__nucleus {
+  position: absolute;
+  inset: 28% 30%;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, #ffffff 0, #c0f5ff 12%, #00e5ff 24%, transparent 60%);
+  filter: blur(4px);
+  mix-blend-mode: screen;
+}
+
+/* Animaciones */
+
+@keyframes tamv-tilt {
+  0% {
+    transform: rotateX(24deg) rotateY(-18deg) translateZ(-120px);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: rotateX(14deg) rotateY(10deg) translateZ(-70px);
+  }
+  100% {
+    transform: rotateX(20deg) rotateY(-6deg) translateZ(-110px);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes tamv-line-rise {
+  0% {
+    transform: translate3d(0, 40vh, -400px) scaleY(0.6);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.85;
+  }
+  70% {
+    transform: translate3d(0, -10vh, 100px) scaleY(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, -40vh, 260px) scaleY(0.8);
+    opacity: 0;
   }
 }
 
-.card {
-  padding: 2em;
+@keyframes tamv-core-sweep {
+  0% {
+    transform: translate3d(-10%, 10%, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(6%, -8%, 0) rotate(4deg);
+  }
+  100% {
+    transform: translate3d(-10%, 10%, 0) rotate(0deg);
+  }
 }
 
-.read-the-docs {
-  color: #888;
+@media (max-width: 768px) {
+  .tamv-hero__matrix {
+    inset: -30vh -40vw;
+  }
+
+  .tamv-line {
+    height: 52vh;
+  }
+
+  .tamv-hero__core {
+    width: 92vw;
+    aspect-ratio: 16 / 10;
+    border-radius: 24px;
+    transform: translateZ(80px) rotateX(10deg);
+  }
 }
